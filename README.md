@@ -1,5 +1,4 @@
 
-
 # MapReduce Multi-threaded Framework
 
 ## Overview
@@ -10,8 +9,7 @@ This project is all about making big data processing faster and more efficient. 
 
 ### Authors
 
-- **Amitai Turkel** - [314632878]
-- **Yoav Ernst** - [209363373]
+- **Amitai Turkel**
 
 ## Build Instructions
 
