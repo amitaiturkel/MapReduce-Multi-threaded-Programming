@@ -1,0 +1,17 @@
+amitat.turkel, yoaver
+amitai turkel 314632878, yoav ernst 209363373
+
+
+### Source Files:
+- `Context.cpp` -- Contains the implementation for the context management.
+- `WarpContext.cpp` -- Contains the implementation for warp context handling.
+- `Barrier.cpp` -- Contains the implementation for the barrier synchronization mechanism.
+- `JobHandler.cpp` -- Contains the implementation for job handling.
+- `MapReduceFramework.cpp` -- Contains the core implementation of the MapReduce framework.
+
+### Header Files:
+- `Context.h` -- Header for the context management.
+- `WarpContext.h` -- Header for the warp context handling.
+- `Barrier.h` -- Header for the barrier synchronization mechanism.
+- `JobHandler.h` -- Header for job handling.
+
