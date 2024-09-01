@@ -1,104 +1,74 @@
-Here’s a polished README file for your "MapReduce-Multi-threaded-Programming" project:
 
----
 
 # MapReduce Multi-threaded Framework
 
 ## Overview
 
-This project is a high-performance, multi-threaded implementation of the MapReduce programming model, designed to efficiently process large-scale datasets. Leveraging parallelism, the framework distributes tasks across multiple threads, ensuring optimized performance for compute-intensive operations.
+Welcome to the MapReduce Multi-threaded Framework! 🚀
+
+This project is all about making big data processing faster and more efficient. By leveraging the power of multi-threading, our framework breaks down large datasets into manageable chunks, processes them in parallel, and then combines the results. Whether you're handling text analysis, large-scale computations, or any task that benefits from parallel processing, this framework is designed to help you get the job done quickly and efficiently.
 
 ### Authors
 
-- **Amitai Turkel** 
+- **Amitai Turkel** - [314632878]
+- **Yoav Ernst** - [209363373]
 
-## Project Structure
+## Build Instructions
 
-### Source Files
+### Static Library
 
-- **`Context.cpp`**  
-  Implements the core context management, responsible for maintaining the state and environment in which the MapReduce operations are executed.
+At the heart of this project is the MapReduce framework itself. To make it easy to integrate into your own projects, we've provided a `Makefile` in the root directory that compiles everything into a static library, `libMapReduceFramework.a`.
 
-- **`WarpContext.cpp`**  
-  Manages the warp context, which handles the execution environment for a specific group of threads, ensuring efficient task execution.
+Here’s how you can build the library:
 
-- **`Barrier.cpp`**  
-  Provides the barrier synchronization mechanism, crucial for coordinating thread operations and ensuring that all threads reach synchronization points before proceeding.
+```bash
+make
+```
 
-- **`JobHandler.cpp`**  
-  Oversees job lifecycle management, including the initialization, execution, and finalization of MapReduce jobs. This component handles the distribution of tasks and manages thread resources.
+This command compiles all the core components of the framework and packages them into a static library that you can link against in your projects. It’s like building a powerful tool that you can reuse anytime you need it!
 
-- **`MapReduceFramework.cpp`**  
-  Contains the core implementation of the MapReduce framework, including the orchestration of map and reduce tasks, as well as the handling of intermediate data and results aggregation.
+When you're done or if you want to start fresh, clean up the build artifacts with:
 
-### Header Files
+```bash
+make clean
+```
 
-- **`Context.h`**  
-  Declares the interfaces and structures for context management.
+### Client Example
 
-- **`WarpContext.h`**  
-  Declares the interfaces for managing the warp context, ensuring that thread groups are handled efficiently.
+To see the framework in action, we've included a sample client in the `SampleClient` folder. This client demonstrates how you can use the framework to solve real-world problems.
 
-- **`Barrier.h`**  
-  Declares the barrier class, providing synchronization services essential for thread coordination.
+To try it out:
 
-- **`JobHandler.h`**  
-  Declares the job handling interfaces, outlining the methods used for managing job execution and resource allocation.
-
-- **`MapReduceFramework.h`**  
-  Declares the core MapReduce framework interfaces, including methods for initiating and managing MapReduce tasks.
-
-## Key Features
-
-- **Multi-threaded Execution:**  
-  The framework employs multiple threads to parallelize the map and reduce tasks, significantly improving performance on large datasets.
-
-- **Custom Map and Reduce Functions:**  
-  Users can define their own map and reduce functions, making the framework adaptable to various problem domains.
-
-- **Thread Synchronization:**  
-  The implementation includes robust synchronization mechanisms, such as barriers, to ensure data integrity and correct results across concurrent operations.
-
-- **Modular Design:**  
-  The project is organized into modular components, making it easy to extend and maintain.
-
-## Getting Started
-
-1. **Clone the Repository:**
+1. First, navigate to the `SampleClient` folder:
 
    ```bash
-   git clone https://github.com/amitaiturkel/MapReduce-Multi-threaded-Programming.git
-   cd MapReduce-Multi-threaded-Programming
+   cd SampleClient
    ```
 
-2. **Build the Project:**
-
-   Use a C++ compiler like `g++`:
+2. Then, build the client:
 
    ```bash
-   g++ -std=c++11 -pthread -o mapreduce Context.cpp WarpContext.cpp Barrier.cpp JobHandler.cpp MapReduceFramework.cpp
+   make
    ```
 
-3. **Run the MapReduce Framework:**
-
-   Execute the compiled program:
+3. Run the client to see the magic of multi-threaded MapReduce:
 
    ```bash
-   ./mapreduce
+   make run
    ```
 
-4. **Customize Map and Reduce Functions:**
+4. If you need to clean up:
 
-   Modify the `MapReduceFramework.cpp` to include your own map and reduce functions, then recompile and run.
+   ```bash
+   make clean
+   ```
+
+This example is a great starting point if you're new to the framework. It shows how to set up a MapReduce job, feed it data, and handle the results—all in a multi-threaded environment.
 
 ## License
 
 This project is open-source and available under the [MIT License](LICENSE).
 
-## Acknowledgments
-
-Special thanks to all contributors and collaborators for their insights and feedback during the development of this project.
-
 ---
 
-This README is designed to be clear, professional, and easy for others to follow, whether they are viewing your project for the first time or contributing to it.
+Feel free to explore, experiment, and expand on this framework. We're excited to see what you’ll build with it! 😊
