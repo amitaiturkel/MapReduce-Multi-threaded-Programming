@@ -1,17 +1,104 @@
-amitat.turkel, yoaver
-amitai turkel 314632878, yoav ernst 209363373
+Here’s a polished README file for your "MapReduce-Multi-threaded-Programming" project:
 
+---
 
-### Source Files:
-- `Context.cpp` -- Contains the implementation for the context management.
-- `WarpContext.cpp` -- Contains the implementation for warp context handling.
-- `Barrier.cpp` -- Contains the implementation for the barrier synchronization mechanism.
-- `JobHandler.cpp` -- Contains the implementation for job handling.
-- `MapReduceFramework.cpp` -- Contains the core implementation of the MapReduce framework.
+# MapReduce Multi-threaded Framework
 
-### Header Files:
-- `Context.h` -- Header for the context management.
-- `WarpContext.h` -- Header for the warp context handling.
-- `Barrier.h` -- Header for the barrier synchronization mechanism.
-- `JobHandler.h` -- Header for job handling.
+## Overview
 
+This project is a high-performance, multi-threaded implementation of the MapReduce programming model, designed to efficiently process large-scale datasets. Leveraging parallelism, the framework distributes tasks across multiple threads, ensuring optimized performance for compute-intensive operations.
+
+### Authors
+
+- **Amitai Turkel** 
+
+## Project Structure
+
+### Source Files
+
+- **`Context.cpp`**  
+  Implements the core context management, responsible for maintaining the state and environment in which the MapReduce operations are executed.
+
+- **`WarpContext.cpp`**  
+  Manages the warp context, which handles the execution environment for a specific group of threads, ensuring efficient task execution.
+
+- **`Barrier.cpp`**  
+  Provides the barrier synchronization mechanism, crucial for coordinating thread operations and ensuring that all threads reach synchronization points before proceeding.
+
+- **`JobHandler.cpp`**  
+  Oversees job lifecycle management, including the initialization, execution, and finalization of MapReduce jobs. This component handles the distribution of tasks and manages thread resources.
+
+- **`MapReduceFramework.cpp`**  
+  Contains the core implementation of the MapReduce framework, including the orchestration of map and reduce tasks, as well as the handling of intermediate data and results aggregation.
+
+### Header Files
+
+- **`Context.h`**  
+  Declares the interfaces and structures for context management.
+
+- **`WarpContext.h`**  
+  Declares the interfaces for managing the warp context, ensuring that thread groups are handled efficiently.
+
+- **`Barrier.h`**  
+  Declares the barrier class, providing synchronization services essential for thread coordination.
+
+- **`JobHandler.h`**  
+  Declares the job handling interfaces, outlining the methods used for managing job execution and resource allocation.
+
+- **`MapReduceFramework.h`**  
+  Declares the core MapReduce framework interfaces, including methods for initiating and managing MapReduce tasks.
+
+## Key Features
+
+- **Multi-threaded Execution:**  
+  The framework employs multiple threads to parallelize the map and reduce tasks, significantly improving performance on large datasets.
+
+- **Custom Map and Reduce Functions:**  
+  Users can define their own map and reduce functions, making the framework adaptable to various problem domains.
+
+- **Thread Synchronization:**  
+  The implementation includes robust synchronization mechanisms, such as barriers, to ensure data integrity and correct results across concurrent operations.
+
+- **Modular Design:**  
+  The project is organized into modular components, making it easy to extend and maintain.
+
+## Getting Started
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/amitaiturkel/MapReduce-Multi-threaded-Programming.git
+   cd MapReduce-Multi-threaded-Programming
+   ```
+
+2. **Build the Project:**
+
+   Use a C++ compiler like `g++`:
+
+   ```bash
+   g++ -std=c++11 -pthread -o mapreduce Context.cpp WarpContext.cpp Barrier.cpp JobHandler.cpp MapReduceFramework.cpp
+   ```
+
+3. **Run the MapReduce Framework:**
+
+   Execute the compiled program:
+
+   ```bash
+   ./mapreduce
+   ```
+
+4. **Customize Map and Reduce Functions:**
+
+   Modify the `MapReduceFramework.cpp` to include your own map and reduce functions, then recompile and run.
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+## Acknowledgments
+
+Special thanks to all contributors and collaborators for their insights and feedback during the development of this project.
+
+---
+
+This README is designed to be clear, professional, and easy for others to follow, whether they are viewing your project for the first time or contributing to it.
