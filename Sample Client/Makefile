@@ -1,33 +1,29 @@
-CC=g++
-CXX=g++
-LD=g++
+# Compiler
+CXX = g++
 
-EXESRC=SampleClient.cpp
-EXEOBJ=$(EXESRC:.cpp=.o)
+# Compiler flags
+CXXFLAGS = -std=c++11 -pthread -Wall
 
-INCS=-I.
-CFLAGS = -Wall -std=c++11 -pthread -g $(INCS)
-CXXFLAGS = -Wall -std=c++11 -pthread -g $(INCS)
-LDFLAGS = -L. -lMapReduceFramework
+# Source files
+SRCS = SampleClient.cpp ../MapReduceFramework.cpp ../Context.cpp ../WarpContext.cpp ../Barrier.cpp ../JobHandler.cpp
 
-EXE = SampleClient
-TARGETS = $(EXE)
+# Header files
+HEADERS = ../MapReduceFramework.h ../Context.h ../WarpContext.h ../Barrier.h ../JobHandler.h
 
-TAR=tar
-TARFLAGS=-cvf
-TARNAME=sampleclient.tar
-TARSRCS=$(EXESRC) Makefile
+# Output executable
+TARGET = sample_client
 
-all: $(TARGETS)
+# Default target
+all: $(TARGET)
 
-$(TARGETS): $(EXEOBJ)
-	$(LD) $(CXXFLAGS) $(EXEOBJ) libMapReduceFramework.a -o $(EXE)
+# Compile and link the target executable
+$(TARGET): $(SRCS) $(HEADERS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRCS)
 
+# Clean up the build
 clean:
-	$(RM) $(TARGETS) $(EXE) $(OBJ) $(EXEOBJ) *~ *core
+	rm -f $(TARGET)
 
-depend:
-	makedepend -- $(CFLAGS) -- $(SRC) $(LIBSRC)
-
-tar:
-	$(TAR) $(TARFLAGS) $(TARNAME) $(TARSRCS)
+# Run the client
+run: $(TARGET)
+	./$(TARGET)
